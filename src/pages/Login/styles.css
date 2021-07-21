@@ -1,0 +1,59 @@
+
+.login-screen {
+  background-color: #E8EBF2;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+h1 {
+  color: #666;
+  margin: 10px 0 0 20px;
+}
+
+form {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  margin: 0 35px;
+}
+
+form p {
+  color: #507A05;
+  font-weight: 700;
+  margin: 0;
+}
+
+form input, form button {
+  border: none;
+  border-left: 3px solid #507A05;
+  border-radius: 0;
+  box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.5);
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+form button {
+  background-color: #507A05;
+  border-left: 0;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  width: 50%;
+}
+
+form button:disabled {
+  background-color: #4D6600;
+  color: #CCC
+}
+
+*:focus {
+  outline: none;
+}
+
+.background-image {
+  background-image: url("../../images/login_background.png");
+  background-repeat: no-repeat;
+  height: 100%;
+}
