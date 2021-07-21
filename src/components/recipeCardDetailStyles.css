@@ -1,0 +1,21 @@
+div img {
+  max-width: 100vw;
+}
+
+.social-buttons {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  border: none;
+}
+
+.favorite-btn {
+  border: 0;
+  background-color: transparent;
+  margin: 0;
+}
+
+.favorite-btn:focus {
+  outline: none;
+}

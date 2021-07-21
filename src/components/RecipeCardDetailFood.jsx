@@ -8,6 +8,8 @@ import { foodById } from '../services/apiRequests';
 import DrinksRecomends from './componentsDetails/DrinksRecomends';
 import BtnInitiateRecipe from './componentsDetails/BtnInitiateRecipe';
 
+import './recipeCardDetailStyles.css';
+
 export default function RecipeCardDetailFood() {
   const [foodDetails, setFoodDetails] = useState({});
   const [done, setDone] = useState(false);
@@ -93,16 +95,17 @@ export default function RecipeCardDetailFood() {
       />
       <h1 data-testid="recipe-title">{ foodDetails.strMeal }</h1>
 
-      <ShareBtn id={ idMeal } type="comida" />
-
-      <button type="button" onClick={ setFavorite }>
-        <img
-          id="fav-btn"
-          src={ whiteHeartIcon }
-          alt="favoritar"
-          data-testid="favorite-btn"
-        />
-      </button>
+      <div className="social-buttons">
+        <ShareBtn id={ idMeal } type="comida" className="share-btn" />
+        <button type="button" onClick={ setFavorite } className="favorite-btn">
+          <img
+            id="fav-btn"
+            src={ whiteHeartIcon }
+            alt="favoritar"
+            data-testid="favorite-btn"
+          />
+        </button>
+      </div>
 
       <h2 data-testid="recipe-category">{ foodDetails.strCategory }</h2>
       <h3>Ingredientes:</h3>

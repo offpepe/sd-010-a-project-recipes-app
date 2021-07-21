@@ -8,6 +8,8 @@ import FoodsRecomends from './componentsDetails/FoodsRecomends';
 import './DetailsScreen.css';
 import BtnInitiateRecipe from './componentsDetails/BtnInitiateRecipe';
 
+import './recipeCardDetailStyles.css';
+
 export default function RecipeCardDetailDrink() {
   const [drinkDetails, setDrinkDetails] = useState({});
   const [done, setDone] = useState(false);
@@ -92,15 +94,17 @@ export default function RecipeCardDetailDrink() {
         data-testid="recipe-photo"
       />
       <h1 data-testid="recipe-title">{ drinkDetails.strDrink }</h1>
-      <ShareBtn id={ idDrink } type="bebida" />
-      <button type="button" onClick={ setFavorite }>
-        <img
-          id="fav-btn"
-          src={ whiteHeartIcon }
-          alt="favoritar"
-          data-testid="favorite-btn"
-        />
-      </button>
+      <div className="social-buttons">
+        <ShareBtn id={ idDrink } type="bebida" />
+        <button type="button" onClick={ setFavorite }  className="favorite-btn">
+          <img
+            id="fav-btn"
+            src={ whiteHeartIcon }
+            alt="favoritar"
+            data-testid="favorite-btn"
+          />
+        </button>
+      </div>
       <h2 data-testid="recipe-category">{ drinkDetails.strAlcoholic }</h2>
       <h3>Ingredientes:</h3>
       <ul>

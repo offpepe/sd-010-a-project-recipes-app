@@ -1,0 +1,10 @@
+.type-input {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+input[type="radio"] {
+  border: 0;
+  box-shadow: none;
+}
