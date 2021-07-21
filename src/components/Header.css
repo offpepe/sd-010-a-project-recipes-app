@@ -8,7 +8,8 @@
 }
 
 .m-Header button > img {
-  filter: invert(80%);
+  filter: invert(90%);
+  width: 1.8rem;
 }
 
 .m-Header button {

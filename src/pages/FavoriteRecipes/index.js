@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import RecipeContext from '../../context/RecipeContext';
 import FavoriteRecipeCard from '../../components/FavoriteRecipeCard';
+import './styles.css';
 
 export default function FavoriteRecipes() {
   document.title = 'Receitas Favoritas';
@@ -26,7 +27,7 @@ export default function FavoriteRecipes() {
   return (
     <div>
       <Header />
-      <div className="navigation">
+      <div className="filters">
         <button
           type="button"
           data-testid="filter-by-all-btn"

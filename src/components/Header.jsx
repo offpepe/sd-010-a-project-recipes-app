@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 import SearchBar from './SearchBar';
-import profileIcon from '../images/profileIcon.svg';
-import searchIcon from '../images/searchIcon.svg';
+import profileIcon from '../images/account_circle_black_24dp.svg';
+import searchIcon from '../images/search_black_24dp.svg';
 
 function Header({ searchBar, type }) {
   const [showSearchBar, toggleShowSearchBar] = useState(false);
