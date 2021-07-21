@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import RecipeContext from '../../context/RecipeContext';
 import {
   initialFoods, getCategoriesFoods, foodsByCategory } from '../../services/apiRequests';
@@ -41,13 +42,14 @@ function FoodPage() {
   return (
     <section>
       <Header searchBar="true" type="food" />
-      { categories
-        && <CategoriesButtons
+      { !isLoading ? (
+        <CategoriesButtons
           categories={ categories }
           toggleCategory={ toggleCategory }
-        /> }
+        />)
+        : <Spinner animation="border" /> }
       <main className="recipes-card-conteiner">
-        { !isLoading && recipes
+        { !isLoading ? recipes
           .filter((_, index) => index <= maxLength)
           .map((meal, index) => (
             <RecipeCardFood
@@ -55,7 +57,8 @@ function FoodPage() {
               meal={ meal }
               index={ index }
             />
-          ))}
+          ))
+          : <Spinner animation="border" />}
       </main>
       <FooterMenu />
       { redirect }

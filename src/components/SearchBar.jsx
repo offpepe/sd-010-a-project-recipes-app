@@ -1,16 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { Alert, Button } from 'react-bootstrap';
 
 import RecipeContext from '../context/RecipeContext';
 import * as API from '../services/apiRequests';
 
 function SearchBar({ type: requestType }) {
   const { setRecipes, setRedirect } = useContext(RecipeContext);
+  const [showAlert, setAlert] = useState(false);
+  const [error, setError] = useState(null);
+  const [errtype, setErrtype] = useState(null);
 
   const setterWithLengthCheck = (value) => {
     if (value === null) {
-      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      setError('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      setErrtype('danger');
+      setAlert(true);
     } else if (value.length === 1) {
       const recipe = value.pop();
       if (requestType === 'food') {
@@ -57,7 +63,9 @@ function SearchBar({ type: requestType }) {
         if (type.value === 'firstLetter' && value.value.length === 1) {
           filter(type.value, value.value);
         } else if (type.value === 'firstLetter' && value.value.length > 1) {
-          alert('Sua busca deve conter somente 1 (um) caracter');
+          setError('Sua busca deve conter somente 1 (um) caracter');
+          setErrtype('warning');
+          setAlert(true);
         } else {
           filter(type.value, value.value);
         }
@@ -109,6 +117,18 @@ function SearchBar({ type: requestType }) {
       <button type="submit" data-testid="exec-search-btn">
         Buscar
       </button>
+      { showAlert && (
+        <Alert variant={ errtype }>
+          { error }
+          <div>
+            <Button
+              variant={ `outline-${errtype}` }
+              onClick={ () => setAlert(false) }
+            >
+              Fechar
+            </Button>
+          </div>
+        </Alert>) }
     </form>
   );
 }

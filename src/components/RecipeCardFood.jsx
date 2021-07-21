@@ -16,7 +16,7 @@ export default function RecipeCardFood({
           alt=""
           data-testid={ `${index}-card-img` }
         />
-        <Card.Body style={ { height: '50px' } }>
+        <Card.Body className="recipe-card-body">
           <p
             data-testid={ `${index}-card-name` }
           >
