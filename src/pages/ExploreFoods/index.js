@@ -12,7 +12,7 @@ export default function ExploreFoods() {
   return (
     <div>
       <Header />
-      <div>
+      <div className="navigation">
         <Link to="/explorar/comidas/ingredientes">
           <button type="button" data-testid="explore-by-ingredient">
             Por Ingredientes
