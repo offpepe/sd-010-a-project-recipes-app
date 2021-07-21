@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 export default function RecipeCardDrink({
@@ -7,26 +8,23 @@ export default function RecipeCardDrink({
     idDrink, strDrink, strDrinkThumb }, index }) {
   return (
     <Link to={ `/bebidas/${idDrink}` }>
-      <div
-        style={ {
-          display: 'flex',
-          flexDirection: 'column',
-          maxWidth: '100vw',
-          alignItems: 'center' } }
+      <Card
+        className="recipe-card"
         data-testid={ `${index}-recipe-card` }
       >
-        <p
-          data-testid={ `${index}-card-name` }
-        >
-          { strDrink }
-        </p>
-        <img
-          style={ { width: '80vw' } }
+        <Card.Img
           src={ strDrinkThumb }
           alt=""
           data-testid={ `${index}-card-img` }
         />
-      </div>
+        <Card.Body style={ { height: '50px' } }>
+          <p
+            data-testid={ `${index}-card-name` }
+          >
+            { strDrink }
+          </p>
+        </Card.Body>
+      </Card>
     </Link>
   );
 }

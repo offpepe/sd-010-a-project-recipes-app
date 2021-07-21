@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import UserContext from '../../context/UserContext';
 
 function Login() {
+  document.title = 'Login';
   const { email, setEmail } = useContext(UserContext);
   const [password, setPassword] = useState('');
   const minPassLength = 7;

@@ -1,9 +1,14 @@
 .m-Header {
   align-items: center;
-  background-color: #c4c4c4;
+  background-color: #2e7d5c;
+  color: whitesmoke;
   display: flex;
   justify-content: space-between;
   padding: 10px;
+}
+
+.m-Header button > img {
+  filter: invert(80%);
 }
 
 .m-Header button {

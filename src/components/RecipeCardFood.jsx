@@ -1,31 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 export default function RecipeCardFood({
   meal: { idMeal, strMeal, strMealThumb }, index }) {
   return (
     <Link to={ `/comidas/${idMeal}` }>
-      <div
-        style={ {
-          display: 'flex',
-          flexDirection: 'column',
-          maxWidth: '100vw',
-          alignItems: 'center' } }
+      <Card
+        className="recipe-card"
         data-testid={ `${index}-recipe-card` }
       >
-        <p
-          data-testid={ `${index}-card-name` }
-        >
-          { strMeal }
-        </p>
-        <img
-          style={ { width: '80vw' } }
+        <Card.Img
           src={ strMealThumb }
           alt=""
           data-testid={ `${index}-card-img` }
         />
-      </div>
+        <Card.Body style={ { height: '50px' } }>
+          <p
+            data-testid={ `${index}-card-name` }
+          >
+            { strMeal }
+          </p>
+        </Card.Body>
+      </Card>
     </Link>
   );
 }
