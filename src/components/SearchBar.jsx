@@ -5,6 +5,8 @@ import { Redirect } from 'react-router-dom';
 import RecipeContext from '../context/RecipeContext';
 import * as API from '../services/apiRequests';
 
+import './searchBarStyles.css';
+
 function SearchBar({ type: requestType }) {
   const { setRecipes, setRedirect } = useContext(RecipeContext);
 
