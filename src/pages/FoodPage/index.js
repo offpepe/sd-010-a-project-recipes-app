@@ -7,6 +7,7 @@ import Header from '../../components/Header';
 import FooterMenu from '../../components/footerMenu';
 import RecipeCardFood from '../../components/RecipeCardFood';
 import CategoriesButtons from '../../components/CategoriesButtons';
+import './css/FoodPage.css';
 
 function FoodPage() {
   document.title = 'Comidas';
@@ -16,7 +17,6 @@ function FoodPage() {
   const [choosedCategory, toggleCategory] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
     getCategoriesFoods(setCategories);
     if (redirect !== 'from-explore') {
       initialFoods(setRecipes);
@@ -46,15 +46,17 @@ function FoodPage() {
           categories={ categories }
           toggleCategory={ toggleCategory }
         /> }
-      { !isLoading && recipes
-        .filter((_, index) => index <= maxLength)
-        .map((meal, index) => (
-          <RecipeCardFood
-            key={ meal.idMeal }
-            meal={ meal }
-            index={ index }
-          />
-        ))}
+      <main className="recipes-card-conteiner">
+        { !isLoading && recipes
+          .filter((_, index) => index <= maxLength)
+          .map((meal, index) => (
+            <RecipeCardFood
+              key={ meal.idMeal }
+              meal={ meal }
+              index={ index }
+            />
+          ))}
+      </main>
       <FooterMenu />
       { redirect }
     </section>

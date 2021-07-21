@@ -5,6 +5,7 @@ import UserContext from '../../context/UserContext';
 import './styles.css';
 
 function Login() {
+  document.title = 'Login';
   const { email, setEmail } = useContext(UserContext);
   const [password, setPassword] = useState('');
   const minPassLength = 7;
