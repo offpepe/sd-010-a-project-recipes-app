@@ -1,0 +1,16 @@
+.filters {
+  display: flex;
+  margin: 10px 0;
+}
+
+.filters button {
+  border: none;
+  border-left: 3px solid #507A05;
+  border-radius: 0;
+  box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  margin: 10px 10px;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100%;
+}
